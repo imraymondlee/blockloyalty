@@ -23,6 +23,8 @@ contract LoyaltyCard {
         uint256 newBalance
     );
 
+    event StampsRedeemed(address account);
+
     function addCustomer(address account, uint256 balance) public {
         Customer memory newCustomer = Customer({
             account: account,
@@ -37,5 +39,12 @@ contract LoyaltyCard {
         customer.balance += stampIncrement;
         customers[account] = customer;
         emit BalanceIncreased(account, stampIncrement, customer.balance);
+    }
+
+    function redeemStamps(address account) public {
+        Customer memory customer = customers[account];
+        customer.balance = 0;
+        customers[account] = customer;
+        emit StampsRedeemed(account);
     }
 }
