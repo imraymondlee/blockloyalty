@@ -3,32 +3,14 @@
   "abi": [
     {
       "constant": true,
-      "inputs": [],
-      "name": "owner",
-      "outputs": [
+      "inputs": [
         {
           "name": "",
           "type": "address"
         }
       ],
-      "payable": false,
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "constant": true,
-      "inputs": [
-        {
-          "name": "",
-          "type": "uint256"
-        }
-      ],
       "name": "customers",
       "outputs": [
-        {
-          "name": "id",
-          "type": "uint256"
-        },
         {
           "name": "account",
           "type": "address"
@@ -40,22 +22,34 @@
       ],
       "payable": false,
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "signature": "0x336989ae"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function",
+      "signature": "0x8da5cb5b"
     },
     {
       "inputs": [],
       "payable": false,
       "stateMutability": "nonpayable",
-      "type": "constructor"
+      "type": "constructor",
+      "signature": "constructor"
     },
     {
       "anonymous": false,
       "inputs": [
-        {
-          "indexed": false,
-          "name": "id",
-          "type": "uint256"
-        },
         {
           "indexed": false,
           "name": "account",
@@ -68,15 +62,35 @@
         }
       ],
       "name": "CustomerAdded",
-      "type": "event"
+      "type": "event",
+      "signature": "0xb0706ef598fa4e9e7be86bc44c88f81557e98c8fc0904b373d6eb2daa7c49374"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "account",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "stampIncrement",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "name": "newBalance",
+          "type": "uint256"
+        }
+      ],
+      "name": "BalanceIncreased",
+      "type": "event",
+      "signature": "0x85eb640bd9235e6b4fd035f4723cb8305a62054cdb7aaa06e8822876770482de"
     },
     {
       "constant": false,
       "inputs": [
-        {
-          "name": "id",
-          "type": "uint256"
-        },
         {
           "name": "account",
           "type": "address"
@@ -90,23 +104,43 @@
       "outputs": [],
       "payable": false,
       "stateMutability": "nonpayable",
-      "type": "function"
+      "type": "function",
+      "signature": "0xdedf34f3"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "account",
+          "type": "address"
+        },
+        {
+          "name": "stampIncrement",
+          "type": "uint256"
+        }
+      ],
+      "name": "addStamp",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function",
+      "signature": "0x066e757a"
     }
   ],
-  "bytecode": "0x608060405234801561001057600080fd5b50336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550610081600473e04ef06a5652e224ba2e63507bbf474d396967d4600a610086640100000000026401000000009004565b6101e5565b61008e6101ad565b6060604051908101604052808581526020018473ffffffffffffffffffffffffffffffffffffffff16815260200183815250905080600160008681526020019081526020016000206000820151816000015560208201518160010160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550604082015181600201559050507f30763895a09c3de2c0b2a6ff2ac46361aa60c317479f4e128d853aad656affe8848484604051808481526020018373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001828152602001935050505060405180910390a150505050565b60606040519081016040528060008152602001600073ffffffffffffffffffffffffffffffffffffffff168152602001600081525090565b61039b806101f46000396000f3fe608060405260043610610057576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680638da5cb5b1461005c578063c0abda2a146100b3578063dd7ff7071461013c575b600080fd5b34801561006857600080fd5b506100716101a1565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b3480156100bf57600080fd5b506100ec600480360360208110156100d657600080fd5b81019080803590602001909291905050506101c6565b604051808481526020018373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001828152602001935050505060405180910390f35b34801561014857600080fd5b5061019f6004803603606081101561015f57600080fd5b8101908080359060200190929190803573ffffffffffffffffffffffffffffffffffffffff16906020019092919080359060200190929190505050610210565b005b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b60016020528060005260406000206000915090508060000154908060010160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16908060020154905083565b610218610337565b6060604051908101604052808581526020018473ffffffffffffffffffffffffffffffffffffffff16815260200183815250905080600160008681526020019081526020016000206000820151816000015560208201518160010160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550604082015181600201559050507f30763895a09c3de2c0b2a6ff2ac46361aa60c317479f4e128d853aad656affe8848484604051808481526020018373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001828152602001935050505060405180910390a150505050565b60606040519081016040528060008152602001600073ffffffffffffffffffffffffffffffffffffffff16815260200160008152509056fea165627a7a7230582017745ffbeb76917ff93cc3bebd0146b64f5db4b278ffcc9bc80adb70e43284290029",
-  "deployedBytecode": "0x608060405260043610610057576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680638da5cb5b1461005c578063c0abda2a146100b3578063dd7ff7071461013c575b600080fd5b34801561006857600080fd5b506100716101a1565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b3480156100bf57600080fd5b506100ec600480360360208110156100d657600080fd5b81019080803590602001909291905050506101c6565b604051808481526020018373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001828152602001935050505060405180910390f35b34801561014857600080fd5b5061019f6004803603606081101561015f57600080fd5b8101908080359060200190929190803573ffffffffffffffffffffffffffffffffffffffff16906020019092919080359060200190929190505050610210565b005b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b60016020528060005260406000206000915090508060000154908060010160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16908060020154905083565b610218610337565b6060604051908101604052808581526020018473ffffffffffffffffffffffffffffffffffffffff16815260200183815250905080600160008681526020019081526020016000206000820151816000015560208201518160010160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550604082015181600201559050507f30763895a09c3de2c0b2a6ff2ac46361aa60c317479f4e128d853aad656affe8848484604051808481526020018373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001828152602001935050505060405180910390a150505050565b60606040519081016040528060008152602001600073ffffffffffffffffffffffffffffffffffffffff16815260200160008152509056fea165627a7a7230582017745ffbeb76917ff93cc3bebd0146b64f5db4b278ffcc9bc80adb70e43284290029",
-  "sourceMap": "25:751:0:-;;;230:128;8:9:-1;5:2;;;30:1;27;20:12;5:2;230:128:0;269:10;261:5;;:18;;;;;;;;;;;;;;;;;;289:62;301:1;304:42;348:2;289:11;;;:62;;;:::i;:::-;25:751;;436:338;550:27;;:::i;:::-;580:100;;;;;;;;;607:2;580:100;;;;632:7;580:100;;;;;;662:7;580:100;;;550:130;;706:11;690:9;:13;700:2;690:13;;;;;;;;;;;:27;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;732:35;746:2;750:7;759;732:35;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;436:338;;;;:::o;25:751::-;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;:::-;;;;;;;",
-  "deployedSourceMap": "25:751:0:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;52:20;;8:9:-1;5:2;;;30:1;27;20:12;5:2;52:20:0;;;;;;;;;;;;;;;;;;;;;;;;;;;178:45;;8:9:-1;5:2;;;30:1;27;20:12;5:2;178:45:0;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;178:45:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;436:338;;8:9:-1;5:2;;;30:1;27;20:12;5:2;436:338:0;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;436:338:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;52:20;;;;;;;;;;;;;:::o;178:45::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;436:338::-;550:27;;:::i;:::-;580:100;;;;;;;;;607:2;580:100;;;;632:7;580:100;;;;;;662:7;580:100;;;550:130;;706:11;690:9;:13;700:2;690:13;;;;;;;;;;;:27;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;732:35;746:2;750:7;759;732:35;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;436:338;;;;:::o;25:751::-;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o",
-  "source": "pragma solidity ^0.5.0;\n\ncontract LoyaltyCard {\n    address public owner;\n\n    struct Customer {\n        uint256 id;\n        address account;\n        uint256 balance;\n    }\n\n    mapping(uint256 => Customer) public customers;\n\n    constructor() public {\n        owner = msg.sender;\n        addCustomer(4, 0xe04eF06a5652E224Ba2E63507bbf474d396967d4, 10);\n    }\n\n    event CustomerAdded(uint256 id, address account, uint256 balance);\n\n    function addCustomer(\n        uint256 id,\n        address account,\n        uint256 balance\n    ) public {\n        Customer memory newCustomer = Customer({\n            id: id,\n            account: account,\n            balance: balance\n        });\n        customers[id] = newCustomer;\n        emit CustomerAdded(id, account, balance);\n    }\n}\n",
+  "bytecode": "0x608060405234801561001057600080fd5b50336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555061007f73e04ef06a5652e224ba2e63507bbf474d396967d4600a610084640100000000026401000000009004565b6101ed565b61008c6101bd565b60408051908101604052808473ffffffffffffffffffffffffffffffffffffffff16815260200183815250905080600160008573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008201518160000160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550602082015181600101559050507fb0706ef598fa4e9e7be86bc44c88f81557e98c8fc0904b373d6eb2daa7c493748383604051808373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020018281526020019250505060405180910390a1505050565b6040805190810160405280600073ffffffffffffffffffffffffffffffffffffffff168152602001600081525090565b6105de806101fc6000396000f3fe608060405260043610610062576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff168063066e757a14610067578063336989ae146100c25780638da5cb5b1461015a578063dedf34f3146101b1575b600080fd5b34801561007357600080fd5b506100c06004803603604081101561008a57600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291908035906020019092919050505061020c565b005b3480156100ce57600080fd5b50610111600480360360208110156100e557600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506103e0565b604051808373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020018281526020019250505060405180910390f35b34801561016657600080fd5b5061016f610424565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b3480156101bd57600080fd5b5061020a600480360360408110156101d457600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919080359060200190929190505050610449565b005b610214610582565b600160008473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000206040805190810160405290816000820160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200160018201548152505090508181602001818151019150818152505080600160008573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008201518160000160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550602082015181600101559050507f85eb640bd9235e6b4fd035f4723cb8305a62054cdb7aaa06e8822876770482de83838360200151604051808473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001838152602001828152602001935050505060405180910390a1505050565b60016020528060005260406000206000915090508060000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16908060010154905082565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b610451610582565b60408051908101604052808473ffffffffffffffffffffffffffffffffffffffff16815260200183815250905080600160008573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008201518160000160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550602082015181600101559050507fb0706ef598fa4e9e7be86bc44c88f81557e98c8fc0904b373d6eb2daa7c493748383604051808373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020018281526020019250505060405180910390a1505050565b6040805190810160405280600073ffffffffffffffffffffffffffffffffffffffff16815260200160008152509056fea165627a7a7230582081270702e7e5bbfb061c06309e2ba48aff8a194b424e136c284b052a680ce6710029",
+  "deployedBytecode": "0x608060405260043610610062576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff168063066e757a14610067578063336989ae146100c25780638da5cb5b1461015a578063dedf34f3146101b1575b600080fd5b34801561007357600080fd5b506100c06004803603604081101561008a57600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291908035906020019092919050505061020c565b005b3480156100ce57600080fd5b50610111600480360360208110156100e557600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506103e0565b604051808373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020018281526020019250505060405180910390f35b34801561016657600080fd5b5061016f610424565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b3480156101bd57600080fd5b5061020a600480360360408110156101d457600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919080359060200190929190505050610449565b005b610214610582565b600160008473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000206040805190810160405290816000820160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200160018201548152505090508181602001818151019150818152505080600160008573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008201518160000160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550602082015181600101559050507f85eb640bd9235e6b4fd035f4723cb8305a62054cdb7aaa06e8822876770482de83838360200151604051808473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001838152602001828152602001935050505060405180910390a1505050565b60016020528060005260406000206000915090508060000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16908060010154905082565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b610451610582565b60408051908101604052808473ffffffffffffffffffffffffffffffffffffffff16815260200183815250905080600160008573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008201518160000160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550602082015181600101559050507fb0706ef598fa4e9e7be86bc44c88f81557e98c8fc0904b373d6eb2daa7c493748383604051808373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020018281526020019250505060405180910390a1505050565b6040805190810160405280600073ffffffffffffffffffffffffffffffffffffffff16815260200160008152509056fea165627a7a7230582081270702e7e5bbfb061c06309e2ba48aff8a194b424e136c284b052a680ce6710029",
+  "sourceMap": "25:1066:0:-;;;210:125;8:9:-1;5:2;;;30:1;27;20:12;5:2;210:125:0;249:10;241:5;;:18;;;;;;;;;;;;;;;;;;269:59;281:42;325:2;269:11;;;:59;;;:::i;:::-;25:1066;;521:277;593:27;;:::i;:::-;623:80;;;;;;;;;655:7;623:80;;;;;;685:7;623:80;;;593:110;;734:11;713:9;:18;723:7;713:18;;;;;;;;;;;;;;;:32;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;760:31;774:7;783;760:31;;;;;;;;;;;;;;;;;;;;;;;;;;;;521:277;;;:::o;25:1066::-;;;;;;;;;;;;;;;;;;;;;;:::o;:::-;;;;;;;",
+  "deployedSourceMap": "25:1066:0:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;804:285;;8:9:-1;5:2;;;30:1;27;20:12;5:2;804:285:0;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;804:285:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;158:45;;8:9:-1;5:2;;;30:1;27;20:12;5:2;158:45:0;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;158:45:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;52:20;;8:9:-1;5:2;;;30:1;27;20:12;5:2;52:20:0;;;;;;;;;;;;;;;;;;;;;;;;;;;521:277;;8:9:-1;5:2;;;30:1;27;20:12;5:2;521:277:0;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;521:277:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;804:285;880:24;;:::i;:::-;907:9;:18;917:7;907:18;;;;;;;;;;;;;;;880:45;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;955:14;935:8;:16;;:34;;;;;;;;;;;1000:8;979:9;:18;989:7;979:18;;;;;;;;;;;;;;;:29;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1023:59;1040:7;1049:14;1065:8;:16;;;1023:59;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;804:285;;;:::o;158:45::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;52:20::-;;;;;;;;;;;;;:::o;521:277::-;593:27;;:::i;:::-;623:80;;;;;;;;;655:7;623:80;;;;;;685:7;623:80;;;593:110;;734:11;713:9;:18;723:7;713:18;;;;;;;;;;;;;;;:32;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;760:31;774:7;783;760:31;;;;;;;;;;;;;;;;;;;;;;;;;;;;521:277;;;:::o;25:1066::-;;;;;;;;;;;;;;;;;;;;;;:::o",
+  "source": "pragma solidity ^0.5.0;\n\ncontract LoyaltyCard {\n    address public owner;\n\n    struct Customer {\n        address account;\n        uint256 balance;\n    }\n\n    mapping(address => Customer) public customers;\n\n    constructor() public {\n        owner = msg.sender;\n        addCustomer(0xe04eF06a5652E224Ba2E63507bbf474d396967d4, 10);\n    }\n\n    event CustomerAdded(address account, uint256 balance);\n\n    event BalanceIncreased(\n        address account,\n        uint256 stampIncrement,\n        uint256 newBalance\n    );\n\n    function addCustomer(address account, uint256 balance) public {\n        Customer memory newCustomer = Customer({\n            account: account,\n            balance: balance\n        });\n        customers[account] = newCustomer;\n        emit CustomerAdded(account, balance);\n    }\n\n    function addStamp(address account, uint256 stampIncrement) public {\n        Customer memory customer = customers[account];\n        customer.balance += stampIncrement;\n        customers[account] = customer;\n        emit BalanceIncreased(account, stampIncrement, customer.balance);\n    }\n}\n",
   "sourcePath": "/Users/raymond/Documents/Projects/blockloyalty/src/contracts/LoyaltyCard.sol",
   "ast": {
     "absolutePath": "/Users/raymond/Documents/Projects/blockloyalty/src/contracts/LoyaltyCard.sol",
     "exportedSymbols": {
       "LoyaltyCard": [
-        68
+        100
       ]
     },
-    "id": 69,
+    "id": 101,
     "nodeType": "SourceUnit",
     "nodes": [
       {
@@ -126,9 +160,9 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 68,
+        "id": 100,
         "linearizedBaseContracts": [
-          68
+          100
         ],
         "name": "LoyaltyCard",
         "nodeType": "ContractDefinition",
@@ -138,7 +172,7 @@
             "id": 3,
             "name": "owner",
             "nodeType": "VariableDeclaration",
-            "scope": 68,
+            "scope": 100,
             "src": "52:20:0",
             "stateVariable": true,
             "storageLocation": "default",
@@ -162,41 +196,15 @@
           },
           {
             "canonicalName": "LoyaltyCard.Customer",
-            "id": 10,
+            "id": 8,
             "members": [
               {
                 "constant": false,
                 "id": 5,
-                "name": "id",
-                "nodeType": "VariableDeclaration",
-                "scope": 10,
-                "src": "105:10:0",
-                "stateVariable": false,
-                "storageLocation": "default",
-                "typeDescriptions": {
-                  "typeIdentifier": "t_uint256",
-                  "typeString": "uint256"
-                },
-                "typeName": {
-                  "id": 4,
-                  "name": "uint256",
-                  "nodeType": "ElementaryTypeName",
-                  "src": "105:7:0",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_uint256",
-                    "typeString": "uint256"
-                  }
-                },
-                "value": null,
-                "visibility": "internal"
-              },
-              {
-                "constant": false,
-                "id": 7,
                 "name": "account",
                 "nodeType": "VariableDeclaration",
-                "scope": 10,
-                "src": "125:15:0",
+                "scope": 8,
+                "src": "105:15:0",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -204,10 +212,10 @@
                   "typeString": "address"
                 },
                 "typeName": {
-                  "id": 6,
+                  "id": 4,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
-                  "src": "125:7:0",
+                  "src": "105:7:0",
                   "stateMutability": "nonpayable",
                   "typeDescriptions": {
                     "typeIdentifier": "t_address",
@@ -219,11 +227,11 @@
               },
               {
                 "constant": false,
-                "id": 9,
+                "id": 7,
                 "name": "balance",
                 "nodeType": "VariableDeclaration",
-                "scope": 10,
-                "src": "150:15:0",
+                "scope": 8,
+                "src": "130:15:0",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -231,10 +239,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 8,
+                  "id": 6,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "150:7:0",
+                  "src": "130:7:0",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -246,50 +254,50 @@
             ],
             "name": "Customer",
             "nodeType": "StructDefinition",
-            "scope": 68,
-            "src": "79:93:0",
+            "scope": 100,
+            "src": "79:73:0",
             "visibility": "public"
           },
           {
             "constant": false,
-            "id": 14,
+            "id": 12,
             "name": "customers",
             "nodeType": "VariableDeclaration",
-            "scope": 68,
-            "src": "178:45:0",
+            "scope": 100,
+            "src": "158:45:0",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Customer_$10_storage_$",
-              "typeString": "mapping(uint256 => struct LoyaltyCard.Customer)"
+              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Customer_$8_storage_$",
+              "typeString": "mapping(address => struct LoyaltyCard.Customer)"
             },
             "typeName": {
-              "id": 13,
+              "id": 11,
               "keyType": {
-                "id": 11,
-                "name": "uint256",
+                "id": 9,
+                "name": "address",
                 "nodeType": "ElementaryTypeName",
-                "src": "186:7:0",
+                "src": "166:7:0",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_uint256",
-                  "typeString": "uint256"
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
                 }
               },
               "nodeType": "Mapping",
-              "src": "178:28:0",
+              "src": "158:28:0",
               "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Customer_$10_storage_$",
-                "typeString": "mapping(uint256 => struct LoyaltyCard.Customer)"
+                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Customer_$8_storage_$",
+                "typeString": "mapping(address => struct LoyaltyCard.Customer)"
               },
               "valueType": {
                 "contractScope": null,
-                "id": 12,
+                "id": 10,
                 "name": "Customer",
                 "nodeType": "UserDefinedTypeName",
-                "referencedDeclaration": 10,
-                "src": "197:8:0",
+                "referencedDeclaration": 8,
+                "src": "177:8:0",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_Customer_$10_storage_ptr",
+                  "typeIdentifier": "t_struct$_Customer_$8_storage_ptr",
                   "typeString": "struct LoyaltyCard.Customer"
                 }
               }
@@ -299,26 +307,26 @@
           },
           {
             "body": {
-              "id": 28,
+              "id": 25,
               "nodeType": "Block",
-              "src": "251:107:0",
+              "src": "231:104:0",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 20,
+                    "id": 18,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 17,
+                      "id": 15,
                       "name": "owner",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 3,
-                      "src": "261:5:0",
+                      "src": "241:5:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
@@ -330,18 +338,18 @@
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "id": 18,
+                        "id": 16,
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 116,
-                        "src": "269:3:0",
+                        "referencedDeclaration": 148,
+                        "src": "249:3:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
                           "typeString": "msg"
                         }
                       },
-                      "id": 19,
+                      "id": 17,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -349,21 +357,21 @@
                       "memberName": "sender",
                       "nodeType": "MemberAccess",
                       "referencedDeclaration": null,
-                      "src": "269:10:0",
+                      "src": "249:10:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address_payable",
                         "typeString": "address payable"
                       }
                     },
-                    "src": "261:18:0",
+                    "src": "241:18:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
                     }
                   },
-                  "id": 21,
+                  "id": 19,
                   "nodeType": "ExpressionStatement",
-                  "src": "261:18:0"
+                  "src": "241:18:0"
                 },
                 {
                   "expression": {
@@ -371,33 +379,15 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "hexValue": "34",
-                        "id": 23,
-                        "isConstant": false,
-                        "isLValue": false,
-                        "isPure": true,
-                        "kind": "number",
-                        "lValueRequested": false,
-                        "nodeType": "Literal",
-                        "src": "301:1:0",
-                        "subdenomination": null,
-                        "typeDescriptions": {
-                          "typeIdentifier": "t_rational_4_by_1",
-                          "typeString": "int_const 4"
-                        },
-                        "value": "4"
-                      },
-                      {
-                        "argumentTypes": null,
                         "hexValue": "307865303465463036613536353245323234426132453633353037626266343734643339363936376434",
-                        "id": 24,
+                        "id": 21,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
                         "kind": "number",
                         "lValueRequested": false,
                         "nodeType": "Literal",
-                        "src": "304:42:0",
+                        "src": "281:42:0",
                         "subdenomination": null,
                         "typeDescriptions": {
                           "typeIdentifier": "t_address_payable",
@@ -408,14 +398,14 @@
                       {
                         "argumentTypes": null,
                         "hexValue": "3130",
-                        "id": 25,
+                        "id": 22,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
                         "kind": "number",
                         "lValueRequested": false,
                         "nodeType": "Literal",
-                        "src": "348:2:0",
+                        "src": "325:2:0",
                         "subdenomination": null,
                         "typeDescriptions": {
                           "typeIdentifier": "t_rational_10_by_1",
@@ -427,10 +417,6 @@
                     "expression": {
                       "argumentTypes": [
                         {
-                          "typeIdentifier": "t_rational_4_by_1",
-                          "typeString": "int_const 4"
-                        },
-                        {
                           "typeIdentifier": "t_address_payable",
                           "typeString": "address payable"
                         },
@@ -439,18 +425,18 @@
                           "typeString": "int_const 10"
                         }
                       ],
-                      "id": 22,
+                      "id": 20,
                       "name": "addCustomer",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 67,
-                      "src": "289:11:0",
+                      "referencedDeclaration": 66,
+                      "src": "269:11:0",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_internal_nonpayable$_t_uint256_$_t_address_$_t_uint256_$returns$__$",
-                        "typeString": "function (uint256,address,uint256)"
+                        "typeIdentifier": "t_function_internal_nonpayable$_t_address_$_t_uint256_$returns$__$",
+                        "typeString": "function (address,uint256)"
                       }
                     },
-                    "id": 26,
+                    "id": 23,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -458,39 +444,39 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "289:62:0",
+                    "src": "269:59:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 27,
+                  "id": 24,
                   "nodeType": "ExpressionStatement",
-                  "src": "289:62:0"
+                  "src": "269:59:0"
                 }
               ]
             },
             "documentation": null,
-            "id": 29,
+            "id": 26,
             "implemented": true,
             "kind": "constructor",
             "modifiers": [],
             "name": "",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 15,
+              "id": 13,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "241:2:0"
+              "src": "221:2:0"
             },
             "returnParameters": {
-              "id": 16,
+              "id": 14,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "251:0:0"
+              "src": "231:0:0"
             },
-            "scope": 68,
-            "src": "230:128:0",
+            "scope": 100,
+            "src": "210:125:0",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
@@ -498,48 +484,21 @@
           {
             "anonymous": false,
             "documentation": null,
-            "id": 37,
+            "id": 32,
             "name": "CustomerAdded",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 36,
+              "id": 31,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 31,
-                  "indexed": false,
-                  "name": "id",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 37,
-                  "src": "384:10:0",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_uint256",
-                    "typeString": "uint256"
-                  },
-                  "typeName": {
-                    "id": 30,
-                    "name": "uint256",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "384:7:0",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_uint256",
-                      "typeString": "uint256"
-                    }
-                  },
-                  "value": null,
-                  "visibility": "internal"
-                },
-                {
-                  "constant": false,
-                  "id": 33,
+                  "id": 28,
                   "indexed": false,
                   "name": "account",
                   "nodeType": "VariableDeclaration",
-                  "scope": 37,
-                  "src": "396:15:0",
+                  "scope": 32,
+                  "src": "361:15:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -547,10 +506,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 32,
+                    "id": 27,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "396:7:0",
+                    "src": "361:7:0",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -562,12 +521,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 35,
+                  "id": 30,
                   "indexed": false,
                   "name": "balance",
                   "nodeType": "VariableDeclaration",
-                  "scope": 37,
-                  "src": "413:15:0",
+                  "scope": 32,
+                  "src": "378:15:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -575,10 +534,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 34,
+                    "id": 29,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "413:7:0",
+                    "src": "378:7:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -588,43 +547,140 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "383:46:0"
+              "src": "360:34:0"
             },
-            "src": "364:66:0"
+            "src": "341:54:0"
+          },
+          {
+            "anonymous": false,
+            "documentation": null,
+            "id": 40,
+            "name": "BalanceIncreased",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 39,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 34,
+                  "indexed": false,
+                  "name": "account",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 40,
+                  "src": "433:15:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 33,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "433:7:0",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 36,
+                  "indexed": false,
+                  "name": "stampIncrement",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 40,
+                  "src": "458:22:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 35,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "458:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 38,
+                  "indexed": false,
+                  "name": "newBalance",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 40,
+                  "src": "490:18:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 37,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "490:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "423:91:0"
+            },
+            "src": "401:114:0"
           },
           {
             "body": {
-              "id": 66,
+              "id": 65,
               "nodeType": "Block",
-              "src": "540:234:0",
+              "src": "583:215:0",
               "statements": [
                 {
                   "assignments": [
-                    47
+                    48
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 47,
+                      "id": 48,
                       "name": "newCustomer",
                       "nodeType": "VariableDeclaration",
-                      "scope": 66,
-                      "src": "550:27:0",
+                      "scope": 65,
+                      "src": "593:27:0",
                       "stateVariable": false,
                       "storageLocation": "memory",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Customer_$10_memory_ptr",
+                        "typeIdentifier": "t_struct$_Customer_$8_memory_ptr",
                         "typeString": "struct LoyaltyCard.Customer"
                       },
                       "typeName": {
                         "contractScope": null,
-                        "id": 46,
+                        "id": 47,
                         "name": "Customer",
                         "nodeType": "UserDefinedTypeName",
-                        "referencedDeclaration": 10,
-                        "src": "550:8:0",
+                        "referencedDeclaration": 8,
+                        "src": "593:8:0",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Customer_$10_storage_ptr",
+                          "typeIdentifier": "t_struct$_Customer_$8_storage_ptr",
                           "typeString": "struct LoyaltyCard.Customer"
                         }
                       },
@@ -638,25 +694,12 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 49,
-                        "name": "id",
-                        "nodeType": "Identifier",
-                        "overloadedDeclarations": [],
-                        "referencedDeclaration": 39,
-                        "src": "607:2:0",
-                        "typeDescriptions": {
-                          "typeIdentifier": "t_uint256",
-                          "typeString": "uint256"
-                        }
-                      },
-                      {
-                        "argumentTypes": null,
                         "id": 50,
                         "name": "account",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 41,
-                        "src": "632:7:0",
+                        "referencedDeclaration": 42,
+                        "src": "655:7:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -668,8 +711,8 @@
                         "name": "balance",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 43,
-                        "src": "662:7:0",
+                        "referencedDeclaration": 44,
+                        "src": "685:7:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -678,14 +721,14 @@
                     ],
                     "expression": {
                       "argumentTypes": null,
-                      "id": 48,
+                      "id": 49,
                       "name": "Customer",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 10,
-                      "src": "580:8:0",
+                      "referencedDeclaration": 8,
+                      "src": "623:8:0",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_type$_t_struct$_Customer_$10_storage_ptr_$",
+                        "typeIdentifier": "t_type$_t_struct$_Customer_$8_storage_ptr_$",
                         "typeString": "type(struct LoyaltyCard.Customer storage pointer)"
                       }
                     },
@@ -696,19 +739,18 @@
                     "kind": "structConstructorCall",
                     "lValueRequested": false,
                     "names": [
-                      "id",
                       "account",
                       "balance"
                     ],
                     "nodeType": "FunctionCall",
-                    "src": "580:100:0",
+                    "src": "623:80:0",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Customer_$10_memory",
+                      "typeIdentifier": "t_struct$_Customer_$8_memory",
                       "typeString": "struct LoyaltyCard.Customer memory"
                     }
                   },
                   "nodeType": "VariableDeclarationStatement",
-                  "src": "550:130:0"
+                  "src": "593:110:0"
                 },
                 {
                   "expression": {
@@ -726,25 +768,25 @@
                         "name": "customers",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 14,
-                        "src": "690:9:0",
+                        "referencedDeclaration": 12,
+                        "src": "713:9:0",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Customer_$10_storage_$",
-                          "typeString": "mapping(uint256 => struct LoyaltyCard.Customer storage ref)"
+                          "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Customer_$8_storage_$",
+                          "typeString": "mapping(address => struct LoyaltyCard.Customer storage ref)"
                         }
                       },
                       "id": 56,
                       "indexExpression": {
                         "argumentTypes": null,
                         "id": 55,
-                        "name": "id",
+                        "name": "account",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 39,
-                        "src": "700:2:0",
+                        "referencedDeclaration": 42,
+                        "src": "723:7:0",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_uint256",
-                          "typeString": "uint256"
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
                         }
                       },
                       "isConstant": false,
@@ -752,9 +794,9 @@
                       "isPure": false,
                       "lValueRequested": true,
                       "nodeType": "IndexAccess",
-                      "src": "690:13:0",
+                      "src": "713:18:0",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Customer_$10_storage",
+                        "typeIdentifier": "t_struct$_Customer_$8_storage",
                         "typeString": "struct LoyaltyCard.Customer storage ref"
                       }
                     },
@@ -766,22 +808,22 @@
                       "name": "newCustomer",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 47,
-                      "src": "706:11:0",
+                      "referencedDeclaration": 48,
+                      "src": "734:11:0",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Customer_$10_memory_ptr",
+                        "typeIdentifier": "t_struct$_Customer_$8_memory_ptr",
                         "typeString": "struct LoyaltyCard.Customer memory"
                       }
                     },
-                    "src": "690:27:0",
+                    "src": "713:32:0",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Customer_$10_storage",
+                      "typeIdentifier": "t_struct$_Customer_$8_storage",
                       "typeString": "struct LoyaltyCard.Customer storage ref"
                     }
                   },
                   "id": 59,
                   "nodeType": "ExpressionStatement",
-                  "src": "690:27:0"
+                  "src": "713:32:0"
                 },
                 {
                   "eventCall": {
@@ -790,24 +832,11 @@
                       {
                         "argumentTypes": null,
                         "id": 61,
-                        "name": "id",
-                        "nodeType": "Identifier",
-                        "overloadedDeclarations": [],
-                        "referencedDeclaration": 39,
-                        "src": "746:2:0",
-                        "typeDescriptions": {
-                          "typeIdentifier": "t_uint256",
-                          "typeString": "uint256"
-                        }
-                      },
-                      {
-                        "argumentTypes": null,
-                        "id": 62,
                         "name": "account",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 41,
-                        "src": "750:7:0",
+                        "referencedDeclaration": 42,
+                        "src": "774:7:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -815,12 +844,12 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 63,
+                        "id": 62,
                         "name": "balance",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 43,
-                        "src": "759:7:0",
+                        "referencedDeclaration": 44,
+                        "src": "783:7:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -829,10 +858,6 @@
                     ],
                     "expression": {
                       "argumentTypes": [
-                        {
-                          "typeIdentifier": "t_uint256",
-                          "typeString": "uint256"
-                        },
                         {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -846,14 +871,14 @@
                       "name": "CustomerAdded",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 37,
-                      "src": "732:13:0",
+                      "referencedDeclaration": 32,
+                      "src": "760:13:0",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_event_nonpayable$_t_uint256_$_t_address_$_t_uint256_$returns$__$",
-                        "typeString": "function (uint256,address,uint256)"
+                        "typeIdentifier": "t_function_event_nonpayable$_t_address_$_t_uint256_$returns$__$",
+                        "typeString": "function (address,uint256)"
                       }
                     },
-                    "id": 64,
+                    "id": 63,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -861,62 +886,36 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "732:35:0",
+                    "src": "760:31:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 65,
+                  "id": 64,
                   "nodeType": "EmitStatement",
-                  "src": "727:40:0"
+                  "src": "755:36:0"
                 }
               ]
             },
             "documentation": null,
-            "id": 67,
+            "id": 66,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "addCustomer",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 44,
+              "id": 45,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 39,
-                  "name": "id",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 67,
-                  "src": "466:10:0",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_uint256",
-                    "typeString": "uint256"
-                  },
-                  "typeName": {
-                    "id": 38,
-                    "name": "uint256",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "466:7:0",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_uint256",
-                      "typeString": "uint256"
-                    }
-                  },
-                  "value": null,
-                  "visibility": "internal"
-                },
-                {
-                  "constant": false,
-                  "id": 41,
+                  "id": 42,
                   "name": "account",
                   "nodeType": "VariableDeclaration",
-                  "scope": 67,
-                  "src": "486:15:0",
+                  "scope": 66,
+                  "src": "542:15:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -924,10 +923,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 40,
+                    "id": 41,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "486:7:0",
+                    "src": "542:7:0",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -939,11 +938,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 43,
+                  "id": 44,
                   "name": "balance",
                   "nodeType": "VariableDeclaration",
-                  "scope": 67,
-                  "src": "511:15:0",
+                  "scope": 66,
+                  "src": "559:15:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -951,10 +950,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 42,
+                    "id": 43,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "511:7:0",
+                    "src": "559:7:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -964,35 +963,439 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "456:76:0"
+              "src": "541:34:0"
             },
             "returnParameters": {
-              "id": 45,
+              "id": 46,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "540:0:0"
+              "src": "583:0:0"
             },
-            "scope": 68,
-            "src": "436:338:0",
+            "scope": 100,
+            "src": "521:277:0",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 98,
+              "nodeType": "Block",
+              "src": "870:219:0",
+              "statements": [
+                {
+                  "assignments": [
+                    74
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 74,
+                      "name": "customer",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 98,
+                      "src": "880:24:0",
+                      "stateVariable": false,
+                      "storageLocation": "memory",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Customer_$8_memory_ptr",
+                        "typeString": "struct LoyaltyCard.Customer"
+                      },
+                      "typeName": {
+                        "contractScope": null,
+                        "id": 73,
+                        "name": "Customer",
+                        "nodeType": "UserDefinedTypeName",
+                        "referencedDeclaration": 8,
+                        "src": "880:8:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Customer_$8_storage_ptr",
+                          "typeString": "struct LoyaltyCard.Customer"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 78,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "baseExpression": {
+                      "argumentTypes": null,
+                      "id": 75,
+                      "name": "customers",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 12,
+                      "src": "907:9:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Customer_$8_storage_$",
+                        "typeString": "mapping(address => struct LoyaltyCard.Customer storage ref)"
+                      }
+                    },
+                    "id": 77,
+                    "indexExpression": {
+                      "argumentTypes": null,
+                      "id": 76,
+                      "name": "account",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 68,
+                      "src": "917:7:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "isConstant": false,
+                    "isLValue": true,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "IndexAccess",
+                    "src": "907:18:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Customer_$8_storage",
+                      "typeString": "struct LoyaltyCard.Customer storage ref"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "880:45:0"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 83,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 79,
+                        "name": "customer",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 74,
+                        "src": "935:8:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Customer_$8_memory_ptr",
+                          "typeString": "struct LoyaltyCard.Customer memory"
+                        }
+                      },
+                      "id": 81,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "balance",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 7,
+                      "src": "935:16:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "+=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 82,
+                      "name": "stampIncrement",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 70,
+                      "src": "955:14:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "935:34:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 84,
+                  "nodeType": "ExpressionStatement",
+                  "src": "935:34:0"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 89,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "baseExpression": {
+                        "argumentTypes": null,
+                        "id": 85,
+                        "name": "customers",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 12,
+                        "src": "979:9:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Customer_$8_storage_$",
+                          "typeString": "mapping(address => struct LoyaltyCard.Customer storage ref)"
+                        }
+                      },
+                      "id": 87,
+                      "indexExpression": {
+                        "argumentTypes": null,
+                        "id": 86,
+                        "name": "account",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 68,
+                        "src": "989:7:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "nodeType": "IndexAccess",
+                      "src": "979:18:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Customer_$8_storage",
+                        "typeString": "struct LoyaltyCard.Customer storage ref"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 88,
+                      "name": "customer",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 74,
+                      "src": "1000:8:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Customer_$8_memory_ptr",
+                        "typeString": "struct LoyaltyCard.Customer memory"
+                      }
+                    },
+                    "src": "979:29:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Customer_$8_storage",
+                      "typeString": "struct LoyaltyCard.Customer storage ref"
+                    }
+                  },
+                  "id": 90,
+                  "nodeType": "ExpressionStatement",
+                  "src": "979:29:0"
+                },
+                {
+                  "eventCall": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 92,
+                        "name": "account",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 68,
+                        "src": "1040:7:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 93,
+                        "name": "stampIncrement",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 70,
+                        "src": "1049:14:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 94,
+                          "name": "customer",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 74,
+                          "src": "1065:8:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_Customer_$8_memory_ptr",
+                            "typeString": "struct LoyaltyCard.Customer memory"
+                          }
+                        },
+                        "id": 95,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "balance",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 7,
+                        "src": "1065:16:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "id": 91,
+                      "name": "BalanceIncreased",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 40,
+                      "src": "1023:16:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_event_nonpayable$_t_address_$_t_uint256_$_t_uint256_$returns$__$",
+                        "typeString": "function (address,uint256,uint256)"
+                      }
+                    },
+                    "id": 96,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1023:59:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 97,
+                  "nodeType": "EmitStatement",
+                  "src": "1018:64:0"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 99,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "addStamp",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 71,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 68,
+                  "name": "account",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 99,
+                  "src": "822:15:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 67,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "822:7:0",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 70,
+                  "name": "stampIncrement",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 99,
+                  "src": "839:22:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 69,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "839:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "821:41:0"
+            },
+            "returnParameters": {
+              "id": 72,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "870:0:0"
+            },
+            "scope": 100,
+            "src": "804:285:0",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 69,
-        "src": "25:751:0"
+        "scope": 101,
+        "src": "25:1066:0"
       }
     ],
-    "src": "0:777:0"
+    "src": "0:1092:0"
   },
   "legacyAST": {
     "absolutePath": "/Users/raymond/Documents/Projects/blockloyalty/src/contracts/LoyaltyCard.sol",
     "exportedSymbols": {
       "LoyaltyCard": [
-        68
+        100
       ]
     },
-    "id": 69,
+    "id": 101,
     "nodeType": "SourceUnit",
     "nodes": [
       {
@@ -1012,9 +1415,9 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 68,
+        "id": 100,
         "linearizedBaseContracts": [
-          68
+          100
         ],
         "name": "LoyaltyCard",
         "nodeType": "ContractDefinition",
@@ -1024,7 +1427,7 @@
             "id": 3,
             "name": "owner",
             "nodeType": "VariableDeclaration",
-            "scope": 68,
+            "scope": 100,
             "src": "52:20:0",
             "stateVariable": true,
             "storageLocation": "default",
@@ -1048,41 +1451,15 @@
           },
           {
             "canonicalName": "LoyaltyCard.Customer",
-            "id": 10,
+            "id": 8,
             "members": [
               {
                 "constant": false,
                 "id": 5,
-                "name": "id",
-                "nodeType": "VariableDeclaration",
-                "scope": 10,
-                "src": "105:10:0",
-                "stateVariable": false,
-                "storageLocation": "default",
-                "typeDescriptions": {
-                  "typeIdentifier": "t_uint256",
-                  "typeString": "uint256"
-                },
-                "typeName": {
-                  "id": 4,
-                  "name": "uint256",
-                  "nodeType": "ElementaryTypeName",
-                  "src": "105:7:0",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_uint256",
-                    "typeString": "uint256"
-                  }
-                },
-                "value": null,
-                "visibility": "internal"
-              },
-              {
-                "constant": false,
-                "id": 7,
                 "name": "account",
                 "nodeType": "VariableDeclaration",
-                "scope": 10,
-                "src": "125:15:0",
+                "scope": 8,
+                "src": "105:15:0",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1090,10 +1467,10 @@
                   "typeString": "address"
                 },
                 "typeName": {
-                  "id": 6,
+                  "id": 4,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
-                  "src": "125:7:0",
+                  "src": "105:7:0",
                   "stateMutability": "nonpayable",
                   "typeDescriptions": {
                     "typeIdentifier": "t_address",
@@ -1105,11 +1482,11 @@
               },
               {
                 "constant": false,
-                "id": 9,
+                "id": 7,
                 "name": "balance",
                 "nodeType": "VariableDeclaration",
-                "scope": 10,
-                "src": "150:15:0",
+                "scope": 8,
+                "src": "130:15:0",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1117,10 +1494,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 8,
+                  "id": 6,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "150:7:0",
+                  "src": "130:7:0",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -1132,50 +1509,50 @@
             ],
             "name": "Customer",
             "nodeType": "StructDefinition",
-            "scope": 68,
-            "src": "79:93:0",
+            "scope": 100,
+            "src": "79:73:0",
             "visibility": "public"
           },
           {
             "constant": false,
-            "id": 14,
+            "id": 12,
             "name": "customers",
             "nodeType": "VariableDeclaration",
-            "scope": 68,
-            "src": "178:45:0",
+            "scope": 100,
+            "src": "158:45:0",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Customer_$10_storage_$",
-              "typeString": "mapping(uint256 => struct LoyaltyCard.Customer)"
+              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Customer_$8_storage_$",
+              "typeString": "mapping(address => struct LoyaltyCard.Customer)"
             },
             "typeName": {
-              "id": 13,
+              "id": 11,
               "keyType": {
-                "id": 11,
-                "name": "uint256",
+                "id": 9,
+                "name": "address",
                 "nodeType": "ElementaryTypeName",
-                "src": "186:7:0",
+                "src": "166:7:0",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_uint256",
-                  "typeString": "uint256"
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
                 }
               },
               "nodeType": "Mapping",
-              "src": "178:28:0",
+              "src": "158:28:0",
               "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Customer_$10_storage_$",
-                "typeString": "mapping(uint256 => struct LoyaltyCard.Customer)"
+                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Customer_$8_storage_$",
+                "typeString": "mapping(address => struct LoyaltyCard.Customer)"
               },
               "valueType": {
                 "contractScope": null,
-                "id": 12,
+                "id": 10,
                 "name": "Customer",
                 "nodeType": "UserDefinedTypeName",
-                "referencedDeclaration": 10,
-                "src": "197:8:0",
+                "referencedDeclaration": 8,
+                "src": "177:8:0",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_Customer_$10_storage_ptr",
+                  "typeIdentifier": "t_struct$_Customer_$8_storage_ptr",
                   "typeString": "struct LoyaltyCard.Customer"
                 }
               }
@@ -1185,26 +1562,26 @@
           },
           {
             "body": {
-              "id": 28,
+              "id": 25,
               "nodeType": "Block",
-              "src": "251:107:0",
+              "src": "231:104:0",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 20,
+                    "id": 18,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 17,
+                      "id": 15,
                       "name": "owner",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 3,
-                      "src": "261:5:0",
+                      "src": "241:5:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
@@ -1216,18 +1593,18 @@
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "id": 18,
+                        "id": 16,
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 116,
-                        "src": "269:3:0",
+                        "referencedDeclaration": 148,
+                        "src": "249:3:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
                           "typeString": "msg"
                         }
                       },
-                      "id": 19,
+                      "id": 17,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -1235,21 +1612,21 @@
                       "memberName": "sender",
                       "nodeType": "MemberAccess",
                       "referencedDeclaration": null,
-                      "src": "269:10:0",
+                      "src": "249:10:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address_payable",
                         "typeString": "address payable"
                       }
                     },
-                    "src": "261:18:0",
+                    "src": "241:18:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
                     }
                   },
-                  "id": 21,
+                  "id": 19,
                   "nodeType": "ExpressionStatement",
-                  "src": "261:18:0"
+                  "src": "241:18:0"
                 },
                 {
                   "expression": {
@@ -1257,33 +1634,15 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "hexValue": "34",
-                        "id": 23,
-                        "isConstant": false,
-                        "isLValue": false,
-                        "isPure": true,
-                        "kind": "number",
-                        "lValueRequested": false,
-                        "nodeType": "Literal",
-                        "src": "301:1:0",
-                        "subdenomination": null,
-                        "typeDescriptions": {
-                          "typeIdentifier": "t_rational_4_by_1",
-                          "typeString": "int_const 4"
-                        },
-                        "value": "4"
-                      },
-                      {
-                        "argumentTypes": null,
                         "hexValue": "307865303465463036613536353245323234426132453633353037626266343734643339363936376434",
-                        "id": 24,
+                        "id": 21,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
                         "kind": "number",
                         "lValueRequested": false,
                         "nodeType": "Literal",
-                        "src": "304:42:0",
+                        "src": "281:42:0",
                         "subdenomination": null,
                         "typeDescriptions": {
                           "typeIdentifier": "t_address_payable",
@@ -1294,14 +1653,14 @@
                       {
                         "argumentTypes": null,
                         "hexValue": "3130",
-                        "id": 25,
+                        "id": 22,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
                         "kind": "number",
                         "lValueRequested": false,
                         "nodeType": "Literal",
-                        "src": "348:2:0",
+                        "src": "325:2:0",
                         "subdenomination": null,
                         "typeDescriptions": {
                           "typeIdentifier": "t_rational_10_by_1",
@@ -1313,10 +1672,6 @@
                     "expression": {
                       "argumentTypes": [
                         {
-                          "typeIdentifier": "t_rational_4_by_1",
-                          "typeString": "int_const 4"
-                        },
-                        {
                           "typeIdentifier": "t_address_payable",
                           "typeString": "address payable"
                         },
@@ -1325,18 +1680,18 @@
                           "typeString": "int_const 10"
                         }
                       ],
-                      "id": 22,
+                      "id": 20,
                       "name": "addCustomer",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 67,
-                      "src": "289:11:0",
+                      "referencedDeclaration": 66,
+                      "src": "269:11:0",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_internal_nonpayable$_t_uint256_$_t_address_$_t_uint256_$returns$__$",
-                        "typeString": "function (uint256,address,uint256)"
+                        "typeIdentifier": "t_function_internal_nonpayable$_t_address_$_t_uint256_$returns$__$",
+                        "typeString": "function (address,uint256)"
                       }
                     },
-                    "id": 26,
+                    "id": 23,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1344,39 +1699,39 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "289:62:0",
+                    "src": "269:59:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 27,
+                  "id": 24,
                   "nodeType": "ExpressionStatement",
-                  "src": "289:62:0"
+                  "src": "269:59:0"
                 }
               ]
             },
             "documentation": null,
-            "id": 29,
+            "id": 26,
             "implemented": true,
             "kind": "constructor",
             "modifiers": [],
             "name": "",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 15,
+              "id": 13,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "241:2:0"
+              "src": "221:2:0"
             },
             "returnParameters": {
-              "id": 16,
+              "id": 14,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "251:0:0"
+              "src": "231:0:0"
             },
-            "scope": 68,
-            "src": "230:128:0",
+            "scope": 100,
+            "src": "210:125:0",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
@@ -1384,48 +1739,21 @@
           {
             "anonymous": false,
             "documentation": null,
-            "id": 37,
+            "id": 32,
             "name": "CustomerAdded",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 36,
+              "id": 31,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 31,
-                  "indexed": false,
-                  "name": "id",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 37,
-                  "src": "384:10:0",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_uint256",
-                    "typeString": "uint256"
-                  },
-                  "typeName": {
-                    "id": 30,
-                    "name": "uint256",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "384:7:0",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_uint256",
-                      "typeString": "uint256"
-                    }
-                  },
-                  "value": null,
-                  "visibility": "internal"
-                },
-                {
-                  "constant": false,
-                  "id": 33,
+                  "id": 28,
                   "indexed": false,
                   "name": "account",
                   "nodeType": "VariableDeclaration",
-                  "scope": 37,
-                  "src": "396:15:0",
+                  "scope": 32,
+                  "src": "361:15:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1433,10 +1761,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 32,
+                    "id": 27,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "396:7:0",
+                    "src": "361:7:0",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1448,12 +1776,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 35,
+                  "id": 30,
                   "indexed": false,
                   "name": "balance",
                   "nodeType": "VariableDeclaration",
-                  "scope": 37,
-                  "src": "413:15:0",
+                  "scope": 32,
+                  "src": "378:15:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1461,10 +1789,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 34,
+                    "id": 29,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "413:7:0",
+                    "src": "378:7:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1474,43 +1802,140 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "383:46:0"
+              "src": "360:34:0"
             },
-            "src": "364:66:0"
+            "src": "341:54:0"
+          },
+          {
+            "anonymous": false,
+            "documentation": null,
+            "id": 40,
+            "name": "BalanceIncreased",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 39,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 34,
+                  "indexed": false,
+                  "name": "account",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 40,
+                  "src": "433:15:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 33,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "433:7:0",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 36,
+                  "indexed": false,
+                  "name": "stampIncrement",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 40,
+                  "src": "458:22:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 35,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "458:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 38,
+                  "indexed": false,
+                  "name": "newBalance",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 40,
+                  "src": "490:18:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 37,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "490:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "423:91:0"
+            },
+            "src": "401:114:0"
           },
           {
             "body": {
-              "id": 66,
+              "id": 65,
               "nodeType": "Block",
-              "src": "540:234:0",
+              "src": "583:215:0",
               "statements": [
                 {
                   "assignments": [
-                    47
+                    48
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 47,
+                      "id": 48,
                       "name": "newCustomer",
                       "nodeType": "VariableDeclaration",
-                      "scope": 66,
-                      "src": "550:27:0",
+                      "scope": 65,
+                      "src": "593:27:0",
                       "stateVariable": false,
                       "storageLocation": "memory",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Customer_$10_memory_ptr",
+                        "typeIdentifier": "t_struct$_Customer_$8_memory_ptr",
                         "typeString": "struct LoyaltyCard.Customer"
                       },
                       "typeName": {
                         "contractScope": null,
-                        "id": 46,
+                        "id": 47,
                         "name": "Customer",
                         "nodeType": "UserDefinedTypeName",
-                        "referencedDeclaration": 10,
-                        "src": "550:8:0",
+                        "referencedDeclaration": 8,
+                        "src": "593:8:0",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Customer_$10_storage_ptr",
+                          "typeIdentifier": "t_struct$_Customer_$8_storage_ptr",
                           "typeString": "struct LoyaltyCard.Customer"
                         }
                       },
@@ -1524,25 +1949,12 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 49,
-                        "name": "id",
-                        "nodeType": "Identifier",
-                        "overloadedDeclarations": [],
-                        "referencedDeclaration": 39,
-                        "src": "607:2:0",
-                        "typeDescriptions": {
-                          "typeIdentifier": "t_uint256",
-                          "typeString": "uint256"
-                        }
-                      },
-                      {
-                        "argumentTypes": null,
                         "id": 50,
                         "name": "account",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 41,
-                        "src": "632:7:0",
+                        "referencedDeclaration": 42,
+                        "src": "655:7:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -1554,8 +1966,8 @@
                         "name": "balance",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 43,
-                        "src": "662:7:0",
+                        "referencedDeclaration": 44,
+                        "src": "685:7:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -1564,14 +1976,14 @@
                     ],
                     "expression": {
                       "argumentTypes": null,
-                      "id": 48,
+                      "id": 49,
                       "name": "Customer",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 10,
-                      "src": "580:8:0",
+                      "referencedDeclaration": 8,
+                      "src": "623:8:0",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_type$_t_struct$_Customer_$10_storage_ptr_$",
+                        "typeIdentifier": "t_type$_t_struct$_Customer_$8_storage_ptr_$",
                         "typeString": "type(struct LoyaltyCard.Customer storage pointer)"
                       }
                     },
@@ -1582,19 +1994,18 @@
                     "kind": "structConstructorCall",
                     "lValueRequested": false,
                     "names": [
-                      "id",
                       "account",
                       "balance"
                     ],
                     "nodeType": "FunctionCall",
-                    "src": "580:100:0",
+                    "src": "623:80:0",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Customer_$10_memory",
+                      "typeIdentifier": "t_struct$_Customer_$8_memory",
                       "typeString": "struct LoyaltyCard.Customer memory"
                     }
                   },
                   "nodeType": "VariableDeclarationStatement",
-                  "src": "550:130:0"
+                  "src": "593:110:0"
                 },
                 {
                   "expression": {
@@ -1612,25 +2023,25 @@
                         "name": "customers",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 14,
-                        "src": "690:9:0",
+                        "referencedDeclaration": 12,
+                        "src": "713:9:0",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Customer_$10_storage_$",
-                          "typeString": "mapping(uint256 => struct LoyaltyCard.Customer storage ref)"
+                          "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Customer_$8_storage_$",
+                          "typeString": "mapping(address => struct LoyaltyCard.Customer storage ref)"
                         }
                       },
                       "id": 56,
                       "indexExpression": {
                         "argumentTypes": null,
                         "id": 55,
-                        "name": "id",
+                        "name": "account",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 39,
-                        "src": "700:2:0",
+                        "referencedDeclaration": 42,
+                        "src": "723:7:0",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_uint256",
-                          "typeString": "uint256"
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
                         }
                       },
                       "isConstant": false,
@@ -1638,9 +2049,9 @@
                       "isPure": false,
                       "lValueRequested": true,
                       "nodeType": "IndexAccess",
-                      "src": "690:13:0",
+                      "src": "713:18:0",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Customer_$10_storage",
+                        "typeIdentifier": "t_struct$_Customer_$8_storage",
                         "typeString": "struct LoyaltyCard.Customer storage ref"
                       }
                     },
@@ -1652,22 +2063,22 @@
                       "name": "newCustomer",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 47,
-                      "src": "706:11:0",
+                      "referencedDeclaration": 48,
+                      "src": "734:11:0",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Customer_$10_memory_ptr",
+                        "typeIdentifier": "t_struct$_Customer_$8_memory_ptr",
                         "typeString": "struct LoyaltyCard.Customer memory"
                       }
                     },
-                    "src": "690:27:0",
+                    "src": "713:32:0",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Customer_$10_storage",
+                      "typeIdentifier": "t_struct$_Customer_$8_storage",
                       "typeString": "struct LoyaltyCard.Customer storage ref"
                     }
                   },
                   "id": 59,
                   "nodeType": "ExpressionStatement",
-                  "src": "690:27:0"
+                  "src": "713:32:0"
                 },
                 {
                   "eventCall": {
@@ -1676,24 +2087,11 @@
                       {
                         "argumentTypes": null,
                         "id": 61,
-                        "name": "id",
-                        "nodeType": "Identifier",
-                        "overloadedDeclarations": [],
-                        "referencedDeclaration": 39,
-                        "src": "746:2:0",
-                        "typeDescriptions": {
-                          "typeIdentifier": "t_uint256",
-                          "typeString": "uint256"
-                        }
-                      },
-                      {
-                        "argumentTypes": null,
-                        "id": 62,
                         "name": "account",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 41,
-                        "src": "750:7:0",
+                        "referencedDeclaration": 42,
+                        "src": "774:7:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -1701,12 +2099,12 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 63,
+                        "id": 62,
                         "name": "balance",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 43,
-                        "src": "759:7:0",
+                        "referencedDeclaration": 44,
+                        "src": "783:7:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -1715,10 +2113,6 @@
                     ],
                     "expression": {
                       "argumentTypes": [
-                        {
-                          "typeIdentifier": "t_uint256",
-                          "typeString": "uint256"
-                        },
                         {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -1732,14 +2126,14 @@
                       "name": "CustomerAdded",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 37,
-                      "src": "732:13:0",
+                      "referencedDeclaration": 32,
+                      "src": "760:13:0",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_event_nonpayable$_t_uint256_$_t_address_$_t_uint256_$returns$__$",
-                        "typeString": "function (uint256,address,uint256)"
+                        "typeIdentifier": "t_function_event_nonpayable$_t_address_$_t_uint256_$returns$__$",
+                        "typeString": "function (address,uint256)"
                       }
                     },
-                    "id": 64,
+                    "id": 63,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1747,62 +2141,36 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "732:35:0",
+                    "src": "760:31:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 65,
+                  "id": 64,
                   "nodeType": "EmitStatement",
-                  "src": "727:40:0"
+                  "src": "755:36:0"
                 }
               ]
             },
             "documentation": null,
-            "id": 67,
+            "id": 66,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "addCustomer",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 44,
+              "id": 45,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 39,
-                  "name": "id",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 67,
-                  "src": "466:10:0",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_uint256",
-                    "typeString": "uint256"
-                  },
-                  "typeName": {
-                    "id": 38,
-                    "name": "uint256",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "466:7:0",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_uint256",
-                      "typeString": "uint256"
-                    }
-                  },
-                  "value": null,
-                  "visibility": "internal"
-                },
-                {
-                  "constant": false,
-                  "id": 41,
+                  "id": 42,
                   "name": "account",
                   "nodeType": "VariableDeclaration",
-                  "scope": 67,
-                  "src": "486:15:0",
+                  "scope": 66,
+                  "src": "542:15:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1810,10 +2178,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 40,
+                    "id": 41,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "486:7:0",
+                    "src": "542:7:0",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1825,11 +2193,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 43,
+                  "id": 44,
                   "name": "balance",
                   "nodeType": "VariableDeclaration",
-                  "scope": 67,
-                  "src": "511:15:0",
+                  "scope": 66,
+                  "src": "559:15:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1837,10 +2205,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 42,
+                    "id": 43,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "511:7:0",
+                    "src": "559:7:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1850,26 +2218,430 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "456:76:0"
+              "src": "541:34:0"
             },
             "returnParameters": {
-              "id": 45,
+              "id": 46,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "540:0:0"
+              "src": "583:0:0"
             },
-            "scope": 68,
-            "src": "436:338:0",
+            "scope": 100,
+            "src": "521:277:0",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 98,
+              "nodeType": "Block",
+              "src": "870:219:0",
+              "statements": [
+                {
+                  "assignments": [
+                    74
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 74,
+                      "name": "customer",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 98,
+                      "src": "880:24:0",
+                      "stateVariable": false,
+                      "storageLocation": "memory",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Customer_$8_memory_ptr",
+                        "typeString": "struct LoyaltyCard.Customer"
+                      },
+                      "typeName": {
+                        "contractScope": null,
+                        "id": 73,
+                        "name": "Customer",
+                        "nodeType": "UserDefinedTypeName",
+                        "referencedDeclaration": 8,
+                        "src": "880:8:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Customer_$8_storage_ptr",
+                          "typeString": "struct LoyaltyCard.Customer"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 78,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "baseExpression": {
+                      "argumentTypes": null,
+                      "id": 75,
+                      "name": "customers",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 12,
+                      "src": "907:9:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Customer_$8_storage_$",
+                        "typeString": "mapping(address => struct LoyaltyCard.Customer storage ref)"
+                      }
+                    },
+                    "id": 77,
+                    "indexExpression": {
+                      "argumentTypes": null,
+                      "id": 76,
+                      "name": "account",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 68,
+                      "src": "917:7:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "isConstant": false,
+                    "isLValue": true,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "IndexAccess",
+                    "src": "907:18:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Customer_$8_storage",
+                      "typeString": "struct LoyaltyCard.Customer storage ref"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "880:45:0"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 83,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 79,
+                        "name": "customer",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 74,
+                        "src": "935:8:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Customer_$8_memory_ptr",
+                          "typeString": "struct LoyaltyCard.Customer memory"
+                        }
+                      },
+                      "id": 81,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "balance",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 7,
+                      "src": "935:16:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "+=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 82,
+                      "name": "stampIncrement",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 70,
+                      "src": "955:14:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "935:34:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 84,
+                  "nodeType": "ExpressionStatement",
+                  "src": "935:34:0"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 89,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "baseExpression": {
+                        "argumentTypes": null,
+                        "id": 85,
+                        "name": "customers",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 12,
+                        "src": "979:9:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Customer_$8_storage_$",
+                          "typeString": "mapping(address => struct LoyaltyCard.Customer storage ref)"
+                        }
+                      },
+                      "id": 87,
+                      "indexExpression": {
+                        "argumentTypes": null,
+                        "id": 86,
+                        "name": "account",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 68,
+                        "src": "989:7:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "nodeType": "IndexAccess",
+                      "src": "979:18:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Customer_$8_storage",
+                        "typeString": "struct LoyaltyCard.Customer storage ref"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 88,
+                      "name": "customer",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 74,
+                      "src": "1000:8:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Customer_$8_memory_ptr",
+                        "typeString": "struct LoyaltyCard.Customer memory"
+                      }
+                    },
+                    "src": "979:29:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Customer_$8_storage",
+                      "typeString": "struct LoyaltyCard.Customer storage ref"
+                    }
+                  },
+                  "id": 90,
+                  "nodeType": "ExpressionStatement",
+                  "src": "979:29:0"
+                },
+                {
+                  "eventCall": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 92,
+                        "name": "account",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 68,
+                        "src": "1040:7:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 93,
+                        "name": "stampIncrement",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 70,
+                        "src": "1049:14:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 94,
+                          "name": "customer",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 74,
+                          "src": "1065:8:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_Customer_$8_memory_ptr",
+                            "typeString": "struct LoyaltyCard.Customer memory"
+                          }
+                        },
+                        "id": 95,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "balance",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 7,
+                        "src": "1065:16:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "id": 91,
+                      "name": "BalanceIncreased",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 40,
+                      "src": "1023:16:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_event_nonpayable$_t_address_$_t_uint256_$_t_uint256_$returns$__$",
+                        "typeString": "function (address,uint256,uint256)"
+                      }
+                    },
+                    "id": 96,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1023:59:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 97,
+                  "nodeType": "EmitStatement",
+                  "src": "1018:64:0"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 99,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "addStamp",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 71,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 68,
+                  "name": "account",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 99,
+                  "src": "822:15:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 67,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "822:7:0",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 70,
+                  "name": "stampIncrement",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 99,
+                  "src": "839:22:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 69,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "839:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "821:41:0"
+            },
+            "returnParameters": {
+              "id": 72,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "870:0:0"
+            },
+            "scope": 100,
+            "src": "804:285:0",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 69,
-        "src": "25:751:0"
+        "scope": 101,
+        "src": "25:1066:0"
       }
     ],
-    "src": "0:777:0"
+    "src": "0:1092:0"
   },
   "compiler": {
     "name": "solc",
@@ -1918,15 +2690,56 @@
           "name": "CustomerAdded",
           "type": "event",
           "signature": "0x30763895a09c3de2c0b2a6ff2ac46361aa60c317479f4e128d853aad656affe8"
+        },
+        "0xb0706ef598fa4e9e7be86bc44c88f81557e98c8fc0904b373d6eb2daa7c49374": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "account",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "balance",
+              "type": "uint256"
+            }
+          ],
+          "name": "CustomerAdded",
+          "type": "event",
+          "signature": "0xb0706ef598fa4e9e7be86bc44c88f81557e98c8fc0904b373d6eb2daa7c49374"
+        },
+        "0x85eb640bd9235e6b4fd035f4723cb8305a62054cdb7aaa06e8822876770482de": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "account",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "stampIncrement",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "newBalance",
+              "type": "uint256"
+            }
+          ],
+          "name": "BalanceIncreased",
+          "type": "event",
+          "signature": "0x85eb640bd9235e6b4fd035f4723cb8305a62054cdb7aaa06e8822876770482de"
         }
       },
       "links": {},
-      "address": "0x54c1c2828f1088CD2F13F26E67b615E18142bfF3",
-      "transactionHash": "0x29f1a622d138944454f0fc7c50754e7075a89b169af69a47c366744085c400f3"
+      "address": "0xD3Ff7C073eb11825a66FBCF693Cf1A3732f9575C",
+      "transactionHash": "0x502de426510b58edc034a8164ea7a95ab7e23eb27db0378d9f3927af5946aff7"
     }
   },
   "schemaVersion": "3.0.1",
-  "updatedAt": "2021-06-26T19:25:49.878Z",
+  "updatedAt": "2021-06-27T04:43:32.405Z",
   "devdoc": {
     "methods": {}
   },

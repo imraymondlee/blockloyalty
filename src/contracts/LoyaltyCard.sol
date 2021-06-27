@@ -4,31 +4,38 @@ contract LoyaltyCard {
     address public owner;
 
     struct Customer {
-        uint256 id;
         address account;
         uint256 balance;
     }
 
-    mapping(uint256 => Customer) public customers;
+    mapping(address => Customer) public customers;
 
     constructor() public {
         owner = msg.sender;
-        addCustomer(4, 0xe04eF06a5652E224Ba2E63507bbf474d396967d4, 10);
+        addCustomer(0xe04eF06a5652E224Ba2E63507bbf474d396967d4, 10);
     }
 
-    event CustomerAdded(uint256 id, address account, uint256 balance);
+    event CustomerAdded(address account, uint256 balance);
 
-    function addCustomer(
-        uint256 id,
+    event BalanceIncreased(
         address account,
-        uint256 balance
-    ) public {
+        uint256 stampIncrement,
+        uint256 newBalance
+    );
+
+    function addCustomer(address account, uint256 balance) public {
         Customer memory newCustomer = Customer({
-            id: id,
             account: account,
             balance: balance
         });
-        customers[id] = newCustomer;
-        emit CustomerAdded(id, account, balance);
+        customers[account] = newCustomer;
+        emit CustomerAdded(account, balance);
+    }
+
+    function addStamp(address account, uint256 stampIncrement) public {
+        Customer memory customer = customers[account];
+        customer.balance += stampIncrement;
+        customers[account] = customer;
+        emit BalanceIncreased(account, stampIncrement, customer.balance);
     }
 }
