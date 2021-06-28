@@ -19,19 +19,21 @@ const loadWeb3 = async () => {
 function App() {
   const [account, setAccount] = useState();
   const [loyaltyCard, setLoyaltyCard] = useState();
+  const [isOwner, setIsOwner] = useState(false);
+  const [balance, setBalance] = useState();
 
   useEffect(() => {
     loadWeb3();
-    setCurrentUserAccount();
     getLoyaltyCard();
   }, []);
 
-  const setCurrentUserAccount = async () => {
-    const userAccount = await window.web3.eth.getAccounts();
-    setAccount(userAccount);
-  };
-
   const getLoyaltyCard = async () => {
+    //account
+    const userAccount = await window.web3.eth.getAccounts();
+    setAccount(userAccount[0]);
+    debugger;
+
+    //network
     const networkId = await window.web3.eth.net.getId();
     const networkData = LoyaltyCard.networks[networkId];
 
@@ -40,17 +42,31 @@ function App() {
         LoyaltyCard.abi,
         networkData.address
       );
-
       setLoyaltyCard(loyaltyCardContract);
 
+      //check if account is contract owner
       const contractOwner = await loyaltyCardContract.methods.owner().call();
-      console.log(contractOwner);
+      if (contractOwner === userAccount[0]) {
+        setIsOwner(true);
+      }
+
+      //get balance
+      // const balance = await loyaltyCardContract.methods
+      //   .customers(userAccount[0])
+      //   .call();
+      // setBalance(balance);
     } else {
       window.alert('Contract not deployed to detected network.');
     }
   };
 
-  return <div>Current User: {account}</div>;
+  return (
+    <div>
+      <p>Current User: {account}</p>
+      <p>Owner: {isOwner ? 'yes' : 'no'}</p>
+      <p>Balance: {balance}</p>
+    </div>
+  );
 }
 
 export default App;
