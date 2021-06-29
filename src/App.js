@@ -31,7 +31,6 @@ function App() {
     //account
     const userAccount = await window.web3.eth.getAccounts();
     setAccount(userAccount[0]);
-    debugger;
 
     //network
     const networkId = await window.web3.eth.net.getId();
@@ -51,10 +50,10 @@ function App() {
       }
 
       //get balance
-      // const balance = await loyaltyCardContract.methods
-      //   .customers(userAccount[0])
-      //   .call();
-      // setBalance(balance);
+      const balance = await loyaltyCardContract.methods
+        .customers(userAccount[0])
+        .call();
+      setBalance(balance.balance);
     } else {
       window.alert('Contract not deployed to detected network.');
     }
