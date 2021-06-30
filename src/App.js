@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import { Box, Stack, Heading, Text } from '@chakra-ui/react';
 import Web3 from 'web3';
 import LoyaltyCard from './abis/LoyaltyCard.json';
+import OwnerDashboard from './components/OwnerDashboard';
 
 const loadWeb3 = async () => {
   console.log('Load web3');
@@ -16,7 +18,7 @@ const loadWeb3 = async () => {
   }
 };
 
-function App() {
+const App = () => {
   const [account, setAccount] = useState();
   const [loyaltyCard, setLoyaltyCard] = useState();
   const [isOwner, setIsOwner] = useState(false);
@@ -60,12 +62,15 @@ function App() {
   };
 
   return (
-    <div>
-      <p>Current User: {account}</p>
-      <p>Owner: {isOwner ? 'yes' : 'no'}</p>
-      <p>Balance: {balance}</p>
-    </div>
+    <Box textAlign="center">
+      <Stack spacing={3}>
+        <Heading>BlockLoyalty</Heading>
+        <Text fontSize="md">Current User: {account}</Text>
+        <Text fontSize="md">Owner: {isOwner ? 'yes' : 'no'}</Text>
+        <Text fontSize="md">Balance: {balance}</Text>
+      </Stack>
+    </Box>
   );
-}
+};
 
 export default App;
