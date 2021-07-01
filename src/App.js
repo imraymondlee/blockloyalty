@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { Box, Stack, Heading, Text } from '@chakra-ui/react';
+import { Box, Stack, Heading, Text, Skeleton } from '@chakra-ui/react';
 import Web3 from 'web3';
 import LoyaltyCard from './abis/LoyaltyCard.json';
 import OwnerDashboard from './components/OwnerDashboard';
+import StampCard from './components/StampCard';
 
 const loadWeb3 = async () => {
   console.log('Load web3');
@@ -62,12 +63,18 @@ const App = () => {
   };
 
   return (
-    <Box textAlign="center">
+    <Box textAlign="center" m={4}>
       <Stack spacing={3}>
-        <Heading>BlockLoyalty</Heading>
-        <Text fontSize="md">Current User: {account}</Text>
+        <Heading as="h2" size="md" color="#5611b2" my={3}>
+          BlockLoyalty
+        </Heading>
+        <Skeleton height="100px" />
+        <Text fontSize="xs" fontWeight={700}>
+          {account}
+        </Text>
         <Text fontSize="md">Owner: {isOwner ? 'yes' : 'no'}</Text>
-        <Text fontSize="md">Balance: {balance}</Text>
+
+        <StampCard balance={balance} />
       </Stack>
     </Box>
   );
