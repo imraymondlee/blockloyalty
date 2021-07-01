@@ -2,8 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { Box, Stack, Heading, Text, Skeleton } from '@chakra-ui/react';
 import Web3 from 'web3';
 import LoyaltyCard from './abis/LoyaltyCard.json';
+import QRCode from 'qrcode.react';
 import OwnerDashboard from './components/OwnerDashboard';
 import StampCard from './components/StampCard';
+import QRCard from './components/QRCard';
 
 const loadWeb3 = async () => {
   console.log('Load web3');
@@ -71,12 +73,7 @@ const App = () => {
       </Box>
       <Box textAlign="center" mx={4} mt="-160px">
         <Stack spacing={3}>
-          <Box bg="white" p={4} rounded="lg" boxShadow="lg">
-            <Skeleton height="200px" />
-            <Text fontSize="10px" fontWeight={700} my={2}>
-              {account}
-            </Text>
-          </Box>
+          <QRCard account={account} />
           <Text fontSize="md">Owner: {isOwner ? 'yes' : 'no'}</Text>
 
           <StampCard balance={balance} />
