@@ -24,7 +24,7 @@ const loadWeb3 = async () => {
 const App = () => {
   const [account, setAccount] = useState();
   const [loyaltyCard, setLoyaltyCard] = useState();
-  const [isOwner, setIsOwner] = useState(true);
+  const [isOwner, setIsOwner] = useState(false);
   const [balance, setBalance] = useState();
 
   useEffect(() => {
@@ -74,7 +74,10 @@ const App = () => {
       <Box textAlign="center" mx="auto" mt="-180px" mb={6} px={4} maxW="md">
         <Stack spacing={6}>
           {isOwner ? (
-            <OwnerDashboard loyaltyCard={loyaltyCard} />
+            <OwnerDashboard
+              loyaltyCard={loyaltyCard}
+              currentAccount={account}
+            />
           ) : (
             <React.Fragment>
               <QRCard account={account} />

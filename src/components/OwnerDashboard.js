@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Box,
   Text,
@@ -16,6 +16,28 @@ import {
 } from '@chakra-ui/react';
 
 const OwnerDashboard = (props) => {
+  const [inputs, setInputs] = useState({});
+
+  const handleInputChange = (name, value) => {
+    setInputs((prevState) => ({ ...prevState, [name]: value }));
+  };
+
+  const createNewCustomer = () => {
+    console.log(props.loyaltyCard);
+    console.log(
+      inputs.newCustomerAddress + ' : ' + inputs.newCustomerInitialBalance
+    );
+    props.loyaltyCard.methods
+      .addCustomer(inputs.newCustomerAddress, inputs.newCustomerInitialBalance)
+      .send({ from: props.currentAccount }, function (error, transactionHash) {
+        if (!error) {
+          console.log('Succcess: ', transactionHash);
+        } else {
+          console.log('Error: ', error);
+        }
+      });
+  };
+
   return (
     <Box
       textAlign="center"
@@ -37,11 +59,21 @@ const OwnerDashboard = (props) => {
           <VStack spacing={4} align="left">
             <FormControl id="account-address">
               <FormLabel>Address</FormLabel>
-              <Input placeholder="Enter acount address" />
+              <Input
+                placeholder="Enter acount address"
+                onChange={(e) => {
+                  handleInputChange('newCustomerAddress', e.target.value);
+                }}
+              />
             </FormControl>
             <FormControl id="account-balance">
               <FormLabel>Initial Balance</FormLabel>
-              <NumberInput defaultValue={0} min={0}>
+              <NumberInput
+                min={0}
+                onChange={(e) => {
+                  handleInputChange('newCustomerInitialBalance', e);
+                }}
+              >
                 <NumberInputField />
                 <NumberInputStepper>
                   <NumberIncrementStepper />
@@ -49,7 +81,7 @@ const OwnerDashboard = (props) => {
                 </NumberInputStepper>
               </NumberInput>
             </FormControl>
-            <Button colorScheme="purple" size="md">
+            <Button colorScheme="purple" size="md" onClick={createNewCustomer}>
               Create
             </Button>
           </VStack>
@@ -61,11 +93,22 @@ const OwnerDashboard = (props) => {
           <VStack spacing={4} align="left">
             <FormControl id="account-address">
               <FormLabel>Address</FormLabel>
-              <Input placeholder="Enter acount address" />
+              <Input
+                placeholder="Enter acount address"
+                onChange={(e) => {
+                  handleInputChange('addStampCustomerAddress', e.target.value);
+                }}
+              />
             </FormControl>
             <FormControl id="account-balance">
               <FormLabel>Stamp Increment</FormLabel>
-              <NumberInput defaultValue={1} min={0}>
+              <NumberInput
+                defaultValue={1}
+                min={0}
+                onChange={(e) => {
+                  handleInputChange('addStampCustomerIncrement', e);
+                }}
+              >
                 <NumberInputField />
                 <NumberInputStepper>
                   <NumberIncrementStepper />
@@ -86,7 +129,15 @@ const OwnerDashboard = (props) => {
           <VStack spacing={4} align="left">
             <FormControl id="account-address">
               <FormLabel>Address</FormLabel>
-              <Input placeholder="Enter acount address" />
+              <Input
+                placeholder="Enter acount address"
+                onChange={(e) => {
+                  handleInputChange(
+                    'redeemStampsCustomerAddress',
+                    e.target.value
+                  );
+                }}
+              />
             </FormControl>
             <Button colorScheme="purple" size="md">
               Redeem
