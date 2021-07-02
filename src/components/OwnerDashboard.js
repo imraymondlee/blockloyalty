@@ -38,14 +38,61 @@ const OwnerDashboard = (props) => {
         if (!error) {
           console.log('Succcess: ', transactionHash);
           toast({
-            title: 'Customer has been created',
+            title: 'Customer has been created.',
             status: 'success',
             isClosable: true,
           });
         } else {
           console.log('Error: ', error);
           toast({
-            title: 'Error adding customer',
+            title: 'Error adding customer.',
+            status: 'error',
+            isClosable: true,
+          });
+        }
+      });
+  };
+
+  const addStamp = () => {
+    props.loyaltyCard.methods
+      .addStamp(
+        inputs.addStampCustomerAddress,
+        inputs.addStampCustomerIncrement
+      )
+      .send({ from: props.currentAccount }, function (error, transactionHash) {
+        if (!error) {
+          console.log('Succcess: ', transactionHash);
+          toast({
+            title: 'Stamp has been added.',
+            status: 'success',
+            isClosable: true,
+          });
+        } else {
+          console.log('Error: ', error);
+          toast({
+            title: 'Error adding stamp.',
+            status: 'error',
+            isClosable: true,
+          });
+        }
+      });
+  };
+
+  const redeemStamps = () => {
+    props.loyaltyCard.methods
+      .redeemStamps(inputs.redeemStampsCustomerAddress)
+      .send({ from: props.currentAccount }, function (error, transactionHash) {
+        if (!error) {
+          console.log('Succcess: ', transactionHash);
+          toast({
+            title: 'Stamps have been redeemed.',
+            status: 'success',
+            isClosable: true,
+          });
+        } else {
+          console.log('Error: ', error);
+          toast({
+            title: 'Error redeeming stamps.',
             status: 'error',
             isClosable: true,
           });
@@ -120,7 +167,7 @@ const OwnerDashboard = (props) => {
               <FormLabel>Stamp Increment</FormLabel>
               <NumberInput
                 defaultValue={1}
-                min={0}
+                min={1}
                 onChange={(e) => {
                   handleInputChange('addStampCustomerIncrement', e);
                 }}
@@ -132,7 +179,7 @@ const OwnerDashboard = (props) => {
                 </NumberInputStepper>
               </NumberInput>
             </FormControl>
-            <Button colorScheme="purple" size="md">
+            <Button colorScheme="purple" size="md" onClick={addStamp}>
               Add
             </Button>
           </VStack>
@@ -155,7 +202,7 @@ const OwnerDashboard = (props) => {
                 }}
               />
             </FormControl>
-            <Button colorScheme="purple" size="md">
+            <Button colorScheme="purple" size="md" onClick={redeemStamps}>
               Redeem
             </Button>
           </VStack>

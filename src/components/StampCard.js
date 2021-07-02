@@ -47,7 +47,7 @@ const StampCard = (props) => {
         color="white"
         textAlign="left"
       >
-        Balance {props.balance}
+        Balance
       </Text>
       <SimpleGrid columns={5} spacing={2}>
         {cells}
