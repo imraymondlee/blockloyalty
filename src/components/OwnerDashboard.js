@@ -13,27 +13,42 @@ import {
   VStack,
   Button,
   StackDivider,
+  useToast,
 } from '@chakra-ui/react';
 
 const OwnerDashboard = (props) => {
-  const [inputs, setInputs] = useState({});
+  const [inputs, setInputs] = useState({
+    newCustomerAddress: '',
+    newCustomerInitialBalance: 0,
+    addStampCustomerAddress: '',
+    addStampCustomerIncrement: 1,
+    redeemStampsCustomerAddress: '',
+  });
+
+  const toast = useToast();
 
   const handleInputChange = (name, value) => {
     setInputs((prevState) => ({ ...prevState, [name]: value }));
   };
 
   const createNewCustomer = () => {
-    console.log(props.loyaltyCard);
-    console.log(
-      inputs.newCustomerAddress + ' : ' + inputs.newCustomerInitialBalance
-    );
     props.loyaltyCard.methods
       .addCustomer(inputs.newCustomerAddress, inputs.newCustomerInitialBalance)
       .send({ from: props.currentAccount }, function (error, transactionHash) {
         if (!error) {
           console.log('Succcess: ', transactionHash);
+          toast({
+            title: 'Customer has been created',
+            status: 'success',
+            isClosable: true,
+          });
         } else {
           console.log('Error: ', error);
+          toast({
+            title: 'Error adding customer',
+            status: 'error',
+            isClosable: true,
+          });
         }
       });
   };
@@ -69,6 +84,7 @@ const OwnerDashboard = (props) => {
             <FormControl id="account-balance">
               <FormLabel>Initial Balance</FormLabel>
               <NumberInput
+                defaultValue={0}
                 min={0}
                 onChange={(e) => {
                   handleInputChange('newCustomerInitialBalance', e);
