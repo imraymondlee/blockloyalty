@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { Box, Stack, Heading, Text, Skeleton } from '@chakra-ui/react';
+import { Box, Stack, Heading, Spinner, Text } from '@chakra-ui/react';
 import Web3 from 'web3';
 import LoyaltyCard from './abis/LoyaltyCard.json';
-import QRCode from 'qrcode.react';
 import OwnerDashboard from './components/OwnerDashboard';
 import StampCard from './components/StampCard';
 import QRCard from './components/QRCard';
@@ -26,10 +25,17 @@ const App = () => {
   const [loyaltyCard, setLoyaltyCard] = useState();
   const [isOwner, setIsOwner] = useState(false);
   const [balance, setBalance] = useState();
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [error, setError] = useState();
 
   useEffect(() => {
     loadWeb3();
-    getLoyaltyCard();
+    // debugger;
+    if (window.web3) {
+      getLoyaltyCard();
+    } else {
+      setError('There was an error loading the blockchain.');
+    }
   }, []);
 
   const getLoyaltyCard = async () => {
@@ -59,6 +65,7 @@ const App = () => {
         .customers(userAccount[0])
         .call();
       setBalance(balance.balance);
+      setIsLoaded(true);
     } else {
       window.alert('Contract not deployed to detected network.');
     }
@@ -66,25 +73,51 @@ const App = () => {
 
   return (
     <React.Fragment>
-      <Box textAlign="center" bg="#6100e7" height="250px" p={6}>
+      <Box
+        textAlign="center"
+        bg="#6100e7"
+        height={isLoaded ? '250px' : '100vh'}
+        p={6}
+      >
         <Heading as="h2" size="md" color="white" mb={3}>
           BlockLoyalty
         </Heading>
+        {!isLoaded && (
+          <Box
+            height="100%"
+            width="100%"
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+            mt={-18}
+          >
+            {error ? (
+              <Text fontSize="md" color="white" fontWeight={600}>
+                <strong>Oops!</strong> <br />
+                {error}
+              </Text>
+            ) : (
+              <Spinner size="xl" color="white" speed="0.8s" />
+            )}
+          </Box>
+        )}
       </Box>
       <Box textAlign="center" mx="auto" mt="-180px" mb={6} px={4} maxW="md">
-        <Stack spacing={6}>
-          {isOwner ? (
-            <OwnerDashboard
-              loyaltyCard={loyaltyCard}
-              currentAccount={account}
-            />
-          ) : (
-            <React.Fragment>
-              <QRCard account={account} />
-              <StampCard balance={balance} />
-            </React.Fragment>
-          )}
-        </Stack>
+        {isLoaded && (
+          <Stack spacing={6}>
+            {isOwner ? (
+              <OwnerDashboard
+                loyaltyCard={loyaltyCard}
+                currentAccount={account}
+              />
+            ) : (
+              <React.Fragment>
+                <QRCard account={account} />
+                <StampCard balance={balance} />
+              </React.Fragment>
+            )}
+          </Stack>
+        )}
       </Box>
     </React.Fragment>
   );
