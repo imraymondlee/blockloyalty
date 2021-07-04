@@ -4,7 +4,9 @@ import {
   Text,
   FormControl,
   FormLabel,
+  InputGroup,
   Input,
+  InputRightElement,
   NumberInput,
   NumberInputField,
   NumberInputStepper,
@@ -14,16 +16,39 @@ import {
   Button,
   StackDivider,
   useToast,
+  useDisclosure,
+  Collapse,
 } from '@chakra-ui/react';
+import QRScanner from './QRScanner';
+
+const initialInputs = {
+  newCustomerAddress: '',
+  newCustomerInitialBalance: 0,
+  addStampCustomerAddress: '',
+  addStampCustomerIncrement: 1,
+  redeemStampsCustomerAddress: '',
+};
 
 const OwnerDashboard = (props) => {
-  const [inputs, setInputs] = useState({
-    newCustomerAddress: '',
-    newCustomerInitialBalance: 0,
-    addStampCustomerAddress: '',
-    addStampCustomerIncrement: 1,
-    redeemStampsCustomerAddress: '',
-  });
+  const [inputs, setInputs] = useState(initialInputs);
+
+  const {
+    isOpen: isNewCustomerQROpen,
+    onToggle: toggleNewCustomerQR,
+    onClose: closeNewCustomerQR,
+  } = useDisclosure();
+
+  const {
+    isOpen: isAddStampQROpen,
+    onToggle: toggleAddStampQR,
+    onClose: closeAddStampQR,
+  } = useDisclosure();
+
+  const {
+    isOpen: isRedeemStampsQROpen,
+    onToggle: toggleRedeemStampsQR,
+    onClose: closeRedeemStampsQR,
+  } = useDisclosure();
 
   const toast = useToast();
 
@@ -50,6 +75,8 @@ const OwnerDashboard = (props) => {
             isClosable: true,
           });
         }
+        //Reset inputs
+        setInputs(initialInputs);
       });
   };
 
@@ -75,6 +102,8 @@ const OwnerDashboard = (props) => {
             isClosable: true,
           });
         }
+        //Reset inputs
+        setInputs(initialInputs);
       });
   };
 
@@ -97,7 +126,43 @@ const OwnerDashboard = (props) => {
             isClosable: true,
           });
         }
+        //Reset inputs
+        setInputs(initialInputs);
       });
+  };
+
+  const handleQRScanClick = (inputName) => {
+    switch (inputName) {
+      case 'newCustomerAddress':
+        toggleNewCustomerQR();
+        break;
+      case 'addStampCustomerAddress':
+        toggleAddStampQR();
+        break;
+      case 'redeemStampsCustomerAddress':
+        toggleRedeemStampsQR();
+        break;
+      default:
+    }
+  };
+
+  const handleQRScan = (inputName, data) => {
+    //update state with value from QR scan
+    setInputs((prevState) => ({ ...prevState, [inputName]: data }));
+
+    //close QR code scanner
+    switch (inputName) {
+      case 'newCustomerAddress':
+        closeNewCustomerQR();
+        break;
+      case 'addStampCustomerAddress':
+        closeAddStampQR();
+        break;
+      case 'redeemStampsCustomerAddress':
+        closeRedeemStampsQR();
+        break;
+      default:
+    }
   };
 
   return (
@@ -119,20 +184,37 @@ const OwnerDashboard = (props) => {
             New Customer
           </Text>
           <VStack spacing={4} align="left">
-            <FormControl id="account-address">
+            <FormControl>
               <FormLabel>Address</FormLabel>
-              <Input
-                placeholder="Enter acount address"
-                onChange={(e) => {
-                  handleInputChange('newCustomerAddress', e.target.value);
-                }}
-              />
+              <InputGroup>
+                <Input
+                  placeholder="Enter acount address"
+                  value={inputs.newCustomerAddress}
+                  onChange={(e) => {
+                    handleInputChange('newCustomerAddress', e.target.value);
+                  }}
+                />
+                <InputRightElement width="4.5rem">
+                  <Button
+                    size="sm"
+                    onClick={() => handleQRScanClick('newCustomerAddress')}
+                  >
+                    QR
+                  </Button>
+                </InputRightElement>
+              </InputGroup>
+              <Collapse in={isNewCustomerQROpen} unmountOnExit>
+                <QRScanner
+                  handleQRScan={handleQRScan}
+                  inputName="newCustomerAddress"
+                />
+              </Collapse>
             </FormControl>
-            <FormControl id="account-balance">
+            <FormControl>
               <FormLabel>Initial Balance</FormLabel>
               <NumberInput
-                defaultValue={0}
                 min={0}
+                value={inputs.newCustomerInitialBalance}
                 onChange={(e) => {
                   handleInputChange('newCustomerInitialBalance', e);
                 }}
@@ -154,19 +236,39 @@ const OwnerDashboard = (props) => {
             Add Stamp
           </Text>
           <VStack spacing={4} align="left">
-            <FormControl id="account-address">
+            <FormControl>
               <FormLabel>Address</FormLabel>
-              <Input
-                placeholder="Enter acount address"
-                onChange={(e) => {
-                  handleInputChange('addStampCustomerAddress', e.target.value);
-                }}
-              />
+              <InputGroup>
+                <Input
+                  placeholder="Enter acount address"
+                  value={inputs.addStampCustomerAddress}
+                  onChange={(e) => {
+                    handleInputChange(
+                      'addStampCustomerAddress',
+                      e.target.value
+                    );
+                  }}
+                />
+                <InputRightElement width="4.5rem">
+                  <Button
+                    size="sm"
+                    onClick={() => handleQRScanClick('addStampCustomerAddress')}
+                  >
+                    QR
+                  </Button>
+                </InputRightElement>
+              </InputGroup>
+              <Collapse in={isAddStampQROpen} unmountOnExit>
+                <QRScanner
+                  handleQRScan={handleQRScan}
+                  inputName="addStampCustomerAddress"
+                />
+              </Collapse>
             </FormControl>
-            <FormControl id="account-balance">
+            <FormControl>
               <FormLabel>Stamp Increment</FormLabel>
               <NumberInput
-                defaultValue={1}
+                value={inputs.addStampCustomerIncrement}
                 min={1}
                 onChange={(e) => {
                   handleInputChange('addStampCustomerIncrement', e);
@@ -184,23 +286,41 @@ const OwnerDashboard = (props) => {
             </Button>
           </VStack>
         </Box>
-
         <Box>
           <Text mb={2} fontSize="lg" fontWeight={700} textAlign="center">
             Redeem Stamps
           </Text>
           <VStack spacing={4} align="left">
-            <FormControl id="account-address">
+            <FormControl>
               <FormLabel>Address</FormLabel>
-              <Input
-                placeholder="Enter acount address"
-                onChange={(e) => {
-                  handleInputChange(
-                    'redeemStampsCustomerAddress',
-                    e.target.value
-                  );
-                }}
-              />
+              <InputGroup>
+                <Input
+                  placeholder="Enter acount address"
+                  value={inputs.redeemStampsCustomerAddress}
+                  onChange={(e) => {
+                    handleInputChange(
+                      'redeemStampsCustomerAddress',
+                      e.target.value
+                    );
+                  }}
+                />
+                <InputRightElement width="4.5rem">
+                  <Button
+                    size="sm"
+                    onClick={() =>
+                      handleQRScanClick('redeemStampsCustomerAddress')
+                    }
+                  >
+                    QR
+                  </Button>
+                </InputRightElement>
+              </InputGroup>
+              <Collapse in={isRedeemStampsQROpen} unmountOnExit>
+                <QRScanner
+                  handleQRScan={handleQRScan}
+                  inputName="redeemStampsCustomerAddress"
+                />
+              </Collapse>
             </FormControl>
             <Button colorScheme="purple" size="md" onClick={redeemStamps}>
               Redeem
