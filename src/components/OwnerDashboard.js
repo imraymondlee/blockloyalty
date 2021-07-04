@@ -18,7 +18,10 @@ import {
   useToast,
   useDisclosure,
   Collapse,
+  Icon,
+  IconButton,
 } from '@chakra-ui/react';
+import { FaCamera } from 'react-icons/fa';
 import QRScanner from './QRScanner';
 
 const initialInputs = {
@@ -194,13 +197,18 @@ const OwnerDashboard = (props) => {
                     handleInputChange('newCustomerAddress', e.target.value);
                   }}
                 />
-                <InputRightElement width="4.5rem">
-                  <Button
+                <InputRightElement width="3rem">
+                  <IconButton
+                    borderRadius="md"
                     size="sm"
-                    onClick={() => handleQRScanClick('newCustomerAddress')}
-                  >
-                    QR
-                  </Button>
+                    aria-label="Scan QR Code"
+                    icon={
+                      <Icon
+                        as={FaCamera}
+                        onClick={() => handleQRScanClick('newCustomerAddress')}
+                      />
+                    }
+                  />
                 </InputRightElement>
               </InputGroup>
               <Collapse in={isNewCustomerQROpen} unmountOnExit>
@@ -249,13 +257,20 @@ const OwnerDashboard = (props) => {
                     );
                   }}
                 />
-                <InputRightElement width="4.5rem">
-                  <Button
+                <InputRightElement width="3rem">
+                  <IconButton
+                    borderRadius="md"
                     size="sm"
-                    onClick={() => handleQRScanClick('addStampCustomerAddress')}
-                  >
-                    QR
-                  </Button>
+                    aria-label="Scan QR Code"
+                    icon={
+                      <Icon
+                        as={FaCamera}
+                        onClick={() =>
+                          handleQRScanClick('addStampCustomerAddress')
+                        }
+                      />
+                    }
+                  />
                 </InputRightElement>
               </InputGroup>
               <Collapse in={isAddStampQROpen} unmountOnExit>
@@ -304,15 +319,20 @@ const OwnerDashboard = (props) => {
                     );
                   }}
                 />
-                <InputRightElement width="4.5rem">
-                  <Button
+                <InputRightElement width="3rem">
+                  <IconButton
+                    borderRadius="md"
                     size="sm"
-                    onClick={() =>
-                      handleQRScanClick('redeemStampsCustomerAddress')
+                    aria-label="Scan QR Code"
+                    icon={
+                      <Icon
+                        as={FaCamera}
+                        onClick={() =>
+                          handleQRScanClick('redeemStampsCustomerAddress')
+                        }
+                      />
                     }
-                  >
-                    QR
-                  </Button>
+                  />
                 </InputRightElement>
               </InputGroup>
               <Collapse in={isRedeemStampsQROpen} unmountOnExit>
