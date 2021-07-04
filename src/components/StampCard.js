@@ -1,9 +1,11 @@
 import React from 'react';
-import { Box, Text, SimpleGrid } from '@chakra-ui/react';
+import { Box, Text, SimpleGrid, Icon } from '@chakra-ui/react';
+import { FaCheck } from 'react-icons/fa';
 
 const cellContent = (i, balance) => {
   if (balance >= i) {
-    return 'X';
+    //stamped cells
+    return <Icon as={FaCheck} color="#47cacc" />;
   } else {
     if (i === 10) {
       return 'Free';
