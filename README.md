@@ -1,5 +1,5 @@
 # BlockLoyalty
-BlockLoyalty is a customer loyalty stamp card DApp (Decentralized Application) built on the Ethereum blockchain using smart contracts. Owners can assign stamp cards to customers and give them a stamp per purchase. On the tenth visit, the customer can redeem it for a free item just like regular stamps.
+BlockLoyalty is a customer loyalty card DApp (Decentralized Application) built on the Ethereum blockchain using smart contracts. Owners can assign loyalty cards to customers and give them a stamp per purchase. On the tenth visit, the customer can redeem it for a free item just like traditional paper loyalty cards.
 
 ## Running BlockLoyalty Locally
 There are a few things that need to be set up to have it running.
