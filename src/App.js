@@ -7,7 +7,6 @@ import StampCard from './components/StampCard';
 import QRCard from './components/QRCard';
 
 const loadWeb3 = async () => {
-  console.log('Load web3');
   if (window.ethereum) {
     window.web3 = new Web3(window.ethereum);
     await window.ethereum.enable();
@@ -30,7 +29,6 @@ const App = () => {
 
   useEffect(() => {
     loadWeb3();
-    // debugger;
     if (window.web3) {
       getLoyaltyCard();
     } else {
@@ -39,7 +37,7 @@ const App = () => {
   }, []);
 
   const getLoyaltyCard = async () => {
-    //account
+    //account of user in the app
     const userAccount = await window.web3.eth.getAccounts();
     setAccount(userAccount[0]);
 

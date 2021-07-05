@@ -5,7 +5,6 @@ import QrReader from 'react-qr-reader';
 const QRScanner = (props) => {
   const handleScan = (data) => {
     if (data) {
-      console.log(data);
       props.handleQRScan(props.inputName, data);
     }
   };
